@@ -31,6 +31,7 @@
   "homepage": "https://github.com/BillyZac/buildit-styleguide#readme",
   "main": "gulpfile.js",
   "devDependencies": {
+    "gulp-sass": "^3.1.0",
     "minimist": "^1.2.0",
     "shelljs": "^0.7.6"
   }
