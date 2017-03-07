@@ -1,3 +1,4 @@
 require('shelljs/global')
 
-process.argv.forEach(arg => echo(arg))
+var argv = require('minimist')(process.argv.slice(2));
+console.dir(argv);

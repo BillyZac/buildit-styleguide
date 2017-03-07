@@ -37,6 +37,7 @@
   "homepage": "https://github.com/pattern-lab/edition-node-gulp#readme",
   "main": "gulpfile.js",
   "devDependencies": {
+    "minimist": "^1.2.0",
     "shelljs": "^0.7.6"
   }
 }
