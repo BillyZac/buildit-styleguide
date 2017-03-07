@@ -8,6 +8,6 @@ script:
 deploy:
   # deploy style guide
   provider: script
-  script: node scripts/deploy.js
+  script: npm run deploy
   on:
     master

@@ -27,7 +27,8 @@
   "author": "Brian Muenzenmeyer",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "build": "gulp -- "
+    "build": "gulp -- ",
+    "deploy": "node scripts/deploy.js"
   },
   "license": "MIT",
   "engines": {
