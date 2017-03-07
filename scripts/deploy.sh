@@ -1,2 +1,2 @@
 echo "Hello"
-echo $SURGE_LOGIN
+exit 0
