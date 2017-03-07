@@ -6,8 +6,7 @@ script:
   - npm run build
 
 deploy:
-  # deploy style guide
   provider: script
-  script: npm run deploy
+  script: echo hey you
   on:
     master
