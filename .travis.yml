@@ -7,6 +7,7 @@ script:
 
 deploy:
   provider: script
-  script: echo hey you
+  script: node scripts/deploy.js
   on:
     master
+  skip_cleanup: true
