@@ -2,12 +2,15 @@ language: node_js
 node_js:
   - "6"
 
+before_install:
+  - "npm install -g surge"
+
 script:
   - npm run build
 
 deploy:
   provider: script
-  script: node scripts/deploy.js --SURGE_LOGIN=billyzacsmith@gmail.com
+  script: node scripts/deploy.js
   on:
     master
   skip_cleanup: true

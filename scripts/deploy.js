@@ -1,4 +1,3 @@
 require('shelljs/global')
 
-var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv);
+exec('surge public --domain buildit-styleguide.surge.sh')
