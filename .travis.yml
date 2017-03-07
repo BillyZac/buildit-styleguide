@@ -16,5 +16,5 @@ deploy:
       master
     skip_cleanup: true
   - provider: script
-    script: node scripts/publish.js
+    script: node scripts/publish.js --NPM_TOKEN=$NPM_TOKEN
     skip_cleanup: true
