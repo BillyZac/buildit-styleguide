@@ -16,5 +16,5 @@ deploy:
       master
     skip_cleanup: true
   - provider: script
-    script: npm publish source/css
+    script: node scripts/publish.js
     skip_cleanup: true
