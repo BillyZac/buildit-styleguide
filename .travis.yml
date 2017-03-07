@@ -9,8 +9,17 @@ script:
   - npm run build
 
 deploy:
-  provider: script
-  script: node scripts/deploy.js
-  on:
-    master
-  skip_cleanup: true
+  # Deploy the style guide
+  - provider: script
+    script: node scripts/deploy.js
+    on:
+      master
+    skip_cleanup: true
+  # Publish the styles
+  - provider: npm
+    email: billyzacsmith@gmail.com
+    api_key:
+      secure: wgRMxBC19liDwH36FzvPgNRTacNahRJi4TmWsknPObDS16KE/xQPOyd4OJvMoT71JhhZVsc+xqoFZgPKgbXDN8HPNwnKovcVIMbDQ20ApOrPCi4YgZ6QeipoZs0wKNwfOhq8Z6aCmJkpxWPyWqv+k4RHLTIoyCFUJITtetFDhZhlTE9yWQGKjz30HxnfD7MXIpIoPITkOzqxWcQ1B9gxu8r0U6R7405x80xylbtTBRGcx4FjfYEIbWjL4eqTZ0L+Zv5EdYUDopxMLcw4HkAjqJnTAyXvTazohMUx7E4/+0woL60A4seDBgDC0kTTxDBXqJvKgoDMhG1D4y7ndyjFcM+HizvNNV1OlNnxJ2kHgUm/0V0x5Nq0PbkQTK73zJqXiq8pjhe8QdNeRClLzOhSNrSYtazzk9XDTNhyQSPOog8Ye8DPasCofaUgPGh8+jruNsa2uTuzccuSu8vvW1N4eYykSxUKDYTkObFWpjvU2yqPiicgf6t9KTMYQJwSkipODBaqbDKeRGzvylUG3/B0G5MId4F2A36LX98ta3Sek8vC3sI8RuxX3L0Lz3ly0Lkssu9hNfkA27S83YQ249t/4IQ4VH+b/2zRfm3bql/tYDKe4VGTNTrL024HEyaAJHacU0xyAMLgm+5vKyJAQ22A0wDDqjIEW53yaeWXQ/Nd0Rw=
+    on:
+      tags: true
+      repo: BillyZac/buildit-styleguide
