@@ -1,6 +1,6 @@
 # Buildit: Living Style Guide
 
-A demonstration of a living style guide using Pattern Lab.
+A demonstration of [a living style guide](http://buildit-styleguide.surge.sh/) using Pattern Lab.
 
 ## Helpful Commands
 
@@ -38,5 +38,7 @@ gulp patternlab:serve
 
 BrowserSync should open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy and CI
+## Deploy and Continuous Integration
+The style guide is deployed at http://buildit-styleguide.surge.sh/
+
 All pushes to the master branch of the remote repo will trigger a build and deploy process. This process is run by Travis CI and defined by `.travis.yml`.
