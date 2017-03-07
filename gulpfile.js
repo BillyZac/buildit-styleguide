@@ -64,6 +64,12 @@ gulp.task('pl-copy:styleguide-css', function(){
     .pipe(browserSync.stream());
 });
 
+// Surge ignore copy. Needed so Surge doesn't filter out `bower_components`, which it does by default.
+gulp.task('pl-copy:surgeignore', function(){
+  return gulp.src('.surgeignore', {cwd: resolvePath(paths().source.root)} )
+    .pipe(gulp.dest(resolvePath(paths().public.root)));
+});
+
 /******************************************************
  * PATTERN LAB CONFIGURATION - API with core library
 ******************************************************/
@@ -91,7 +97,8 @@ gulp.task('pl-assets', gulp.series(
     'pl-copy:font',
     'pl-copy:css',
     'pl-copy:styleguide',
-    'pl-copy:styleguide-css'
+    'pl-copy:styleguide-css',
+    'pl-copy:surgeignore'
   ),
   function(done){
     done();
