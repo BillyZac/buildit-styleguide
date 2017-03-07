@@ -8,6 +8,6 @@ script:
 deploy:
   # deploy style guide
   provider: script
-  script: scripts/deploy.sh $TRAVIS_TOKEN
+  script: node scripts/deploy.js
   on:
     master

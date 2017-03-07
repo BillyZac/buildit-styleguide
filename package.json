@@ -35,5 +35,7 @@
   },
   "homepage": "https://github.com/pattern-lab/edition-node-gulp#readme",
   "main": "gulpfile.js",
-  "devDependencies": {}
+  "devDependencies": {
+    "shelljs": "^0.7.6"
+  }
 }

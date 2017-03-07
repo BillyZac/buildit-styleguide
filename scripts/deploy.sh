@@ -1,2 +1,0 @@
-echo HELLO
-echo $TRAVIS_TOKEN
