@@ -9,3 +9,5 @@ deploy:
   # deploy style guide
   provider: script
   script: scripts/deploy.sh $TRAVIS_TOKEN
+  on:
+    master
