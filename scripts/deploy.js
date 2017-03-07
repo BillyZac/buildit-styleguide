@@ -1,2 +1,3 @@
-require('shelljs/global') 
-echo('hey.')
+require('shelljs/global')
+
+process.argv.forEach(arg => echo arg)
