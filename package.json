@@ -27,7 +27,8 @@
   "author": "Brian Muenzenmeyer",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "gulp": "gulp -- "
+    "build": "gulp -- ",
+    "deploy": "surge public --domain buildit-styleguide.surge.sh"
   },
   "license": "MIT",
   "engines": {
