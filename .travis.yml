@@ -8,5 +8,4 @@ script:
 deploy:
   # deploy style guide
   provider: script
-  script: scripts/deploy.sh
-  skip_cleanup: true
+  script: scripts/deploy.sh $TRAVIS_TOKEN

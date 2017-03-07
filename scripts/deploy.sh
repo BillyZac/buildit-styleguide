@@ -1,2 +1,2 @@
-echo "Hello"
-exit 0
+echo HELLO
+echo $TRAVIS_TOKEN
