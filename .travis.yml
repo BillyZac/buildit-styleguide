@@ -6,6 +6,7 @@ before_install:
   - "npm install -g surge"
 
 script:
+  - npm test
   - npm run build
 
 deploy:
