@@ -47,7 +47,7 @@ gulp.task('pl-copy:font', function(){
 
 // SCSS Compile and copy
 gulp.task('pl-compile:sass', function(){
-  return gulp.src(paths().source.styles)
+  return gulp.src(resolvePath(paths().source.styles) + '/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(function(file) {
       // flatten anything inside the styles directory into a single output dir per http://stackoverflow.com/a/34317320/1790362
@@ -172,7 +172,7 @@ function reloadCSS() {
 }
 
 function watch() {
-  gulp.watch(paths().source.styles, { awaitWriteFinish: true }).on('change', gulp.series('pl-compile:sass', reloadCSS));
+  gulp.watch(resolvePath(paths().source.styles) + '/**/*.scss', { awaitWriteFinish: true }).on('change', gulp.series('pl-compile:sass', reloadCSS));
   gulp.watch(resolvePath(paths().source.styleguide) + '/**/*.*', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
 
   var patternWatches = [
