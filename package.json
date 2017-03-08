@@ -22,8 +22,7 @@
   "scripts": {
     "test": "gulp lint:sass",
     "postinstall": "node scripts/postinstall.js",
-    "build": "gulp -- ",
-    "deploy": "node scripts/deploy.js"
+    "build": "gulp -- "
   },
   "license": "MIT",
   "engines": {
