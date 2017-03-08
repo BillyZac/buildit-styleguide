@@ -9,7 +9,7 @@ const npmrc = `//registry.npmjs.org/:_authToken=${npmToken}`
 echo(npmrc).to('.npmrc')
 
 // publish
-exec('npm publish source/css')
+exec('npm publish source/styles')
 
 // delete .npmrc
 rm('.npmrc')
