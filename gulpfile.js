@@ -7,11 +7,16 @@ var gulp = require('gulp'),
   path = require('path'),
   browserSync = require('browser-sync').create(),
   argv = require('minimist')(process.argv.slice(2)),
-  sass = require('gulp-sass');
+  sass = require('gulp-sass')
+  del = require('del');
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g,"/");
 }
+
+gulp.task('clean', function(){
+  return del(resolvePath(paths().public.root))
+})
 
 /******************************************************
  * COPY TASKS - stream assets from source to destination
@@ -221,6 +226,6 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
 /******************************************************
  * COMPOUND TASKS
 ******************************************************/
-gulp.task('default', gulp.series('patternlab:build'));
-gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
-gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', watch));
+gulp.task('default', gulp.series('clean', 'patternlab:build'));
+gulp.task('patternlab:watch', gulp.series('clean', 'patternlab:build', watch));
+gulp.task('patternlab:serve', gulp.series('clean', 'patternlab:build', 'patternlab:connect', watch));
