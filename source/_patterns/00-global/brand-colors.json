@@ -1,0 +1,20 @@
+{
+    "colors": [
+      {
+        "color": "purple",
+        "hexValue": "#884091"
+      },
+      {
+        "color": "white",
+        "hexValue": "#fff"
+      },
+      {
+        "color": "light-gray",
+        "hexValue": "#ddd"
+      },
+      {
+        "color": "dark-gray",
+        "hexValue": "#4f4f4f"
+      }
+    ]
+}

@@ -21,8 +21,19 @@
 .style-guide-swatch {
   border-radius: 5px;
   display: block;
-  height: 4em;
   margin-bottom: .3em;
+
+  > * {
+    height: 4em;
+  }
+
+  .purple { background: $purple; }
+
+  .dark-gray { background: $dark-gray; }
+
+  .white { background: $white; }
+
+  .light-gray { background: $light-gray; }
 }
 
 .style-guide-label {
