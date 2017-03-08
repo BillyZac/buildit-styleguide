@@ -3,12 +3,13 @@
  * EDITION-NODE-GULP
  * The gulp wrapper around patternlab-node core, providing tasks to interact with the core library and move supporting frontend assets.
 ******************************************************/
-var gulp = require('gulp'),
-  path = require('path'),
-  browserSync = require('browser-sync').create(),
-  argv = require('minimist')(process.argv.slice(2)),
-  sass = require('gulp-sass')
-  del = require('del');
+var gulp = require('gulp');
+var path = require('path');
+var browserSync = require('browser-sync').create();
+var argv = require('minimist')(process.argv.slice(2));
+var sass = require('gulp-sass');
+var sassLint = require('gulp-sass-lint');
+var del = require('del');
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g,"/");
@@ -16,6 +17,13 @@ function resolvePath(pathInput) {
 
 gulp.task('clean', function(){
   return del(resolvePath(paths().public.root))
+})
+
+gulp.task('lint:sass', function(){
+  return gulp.src(resolvePath(paths().source.styles) + '/**/*.scss')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 })
 
 /******************************************************
