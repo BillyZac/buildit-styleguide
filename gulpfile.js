@@ -56,7 +56,12 @@ gulp.task('pl-copy:font', function(){
 // SCSS Compile and copy
 gulp.task('pl-compile:sass', function(){
   return gulp.src(resolvePath(paths().source.styles) + '/main.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', function(error) {
+      if (error) {
+        sass.logError(error);
+        throw(error)
+      };
+    }))
     .pipe(gulp.dest(function(file) {
       // flatten anything inside the styles directory into a single output dir per http://stackoverflow.com/a/34317320/1790362
       file.path = path.join(file.base, path.basename(file.path));
@@ -234,6 +239,6 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
 /******************************************************
  * COMPOUND TASKS
 ******************************************************/
-gulp.task('default', gulp.series('clean', 'patternlab:build'));
-gulp.task('patternlab:watch', gulp.series('clean', 'patternlab:build', watch));
-gulp.task('patternlab:serve', gulp.series('clean', 'patternlab:build', 'patternlab:connect', watch));
+gulp.task('default', gulp.series('clean', 'lint:sass', 'patternlab:build'));
+gulp.task('patternlab:watch', gulp.series('clean', 'lint:sass', 'patternlab:build', watch));
+gulp.task('patternlab:serve', gulp.series('clean', 'lint:sass', 'patternlab:build', 'patternlab:connect', watch));
