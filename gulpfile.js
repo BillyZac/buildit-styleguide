@@ -42,9 +42,13 @@ gulp.task('pl-copy:font', function(){
 
 // SCSS Compile and copy
 gulp.task('pl-compile:sass', function(){
-  return gulp.src(resolvePath(paths().source.css) + '**/*.scss')
+  return gulp.src(paths().source.styles)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(resolvePath(paths().public.css)))
+    .pipe(gulp.dest(function(file) {
+      // flatten anything inside the styles directory into a single output dir per http://stackoverflow.com/a/34317320/1790362
+      file.path = path.join(file.base, path.basename(file.path));
+      return resolvePath(paths().public.css);
+    }))
     .pipe(browserSync.stream());
 });
 
@@ -59,7 +63,7 @@ gulp.task('pl-copy:styleguide', function(){
 gulp.task('pl-copy:styleguide-css', function(){
   return gulp.src(resolvePath(paths().source.styleguide) + '/**/*.css')
     .pipe(gulp.dest(function(file){
-      //flatten anything inside the styleguide into a single output dir per http://stackoverflow.com/a/34317320/1790362
+      // flatten anything inside the styleguide into a single output dir per http://stackoverflow.com/a/34317320/1790362
       file.path = path.join(file.base, path.basename(file.path));
       return resolvePath(path.join(paths().public.styleguide, '/css'));
     }))
@@ -163,7 +167,7 @@ function reloadCSS() {
 }
 
 function watch() {
-  gulp.watch(resolvePath(paths().source.css) + '/**/*.css', { awaitWriteFinish: true }).on('change', gulp.series('pl-compile:sass', reloadCSS));
+  gulp.watch(paths().source.styles, { awaitWriteFinish: true }).on('change', gulp.series('pl-compile:sass', reloadCSS));
   gulp.watch(resolvePath(paths().source.styleguide) + '/**/*.*', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
 
   var patternWatches = [
