@@ -70,6 +70,23 @@ gulp.task('pl-compile:sass', function(){
     .pipe(browserSync.stream());
 });
 
+// SCSS Compile and copy
+gulp.task('pl-compile:style-guide-sass', function(){
+  return gulp.src(resolvePath(paths().source.styles) + '/style-guide.scss')
+    .pipe(sass().on('error', function(error) {
+      if (error) {
+        sass.logError(error);
+        throw(error)
+      };
+    }))
+    .pipe(gulp.dest(function(file) {
+      // flatten anything inside the styles directory into a single output dir per http://stackoverflow.com/a/34317320/1790362
+      file.path = path.join(file.base, path.basename(file.path));
+      return resolvePath(paths().public.css);
+    }))
+    .pipe(browserSync.stream());
+});
+
 // Styleguide Copy everything but css
 gulp.task('pl-copy:styleguide', function(){
   return gulp.src(resolvePath(paths().source.styleguide) + '/**/!(*.css)')
@@ -120,6 +137,7 @@ gulp.task('pl-assets', gulp.series(
     'pl-copy:favicon',
     'pl-copy:font',
     'pl-compile:sass',
+    'pl-compile:style-guide-sass',
     'pl-copy:styleguide',
     'pl-copy:styleguide-css',
     'pl-copy:surgeignore'

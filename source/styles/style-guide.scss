@@ -1,0 +1,31 @@
+@import 'globals/colors';
+
+.style-guide-colors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border: 1px solid $light-gray;
+    border-radius: 8px;
+    flex: auto;
+    margin: 0 .5em .5em 0;
+    max-width: 14em;
+    min-width: 5em;
+    padding: .3em;
+  }
+}
+
+.style-guide-swatch {
+  border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: .3em;
+}
+
+.style-guide-label {
+  font-size: 90%;
+  line-height: 1;
+}
