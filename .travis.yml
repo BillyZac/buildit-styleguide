@@ -5,12 +5,13 @@ node_js:
 before_install:
   - "npm install -g surge"
 
-script:
+before_script:
   - npm test
+
+script:
   - npm run build
 
 deploy:
-  # Deploy the style guide
   - provider: script
     script: node scripts/deploy.js
     on:
