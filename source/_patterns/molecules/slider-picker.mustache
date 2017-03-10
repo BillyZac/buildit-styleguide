@@ -1,13 +1,14 @@
 <div class="slider-picker">
-  <div>
-    {{> atoms-label(content: "Flavor") }}
+  <div class="label-container">
+    {{> atoms-label(content: "Saturation") }}
   </div>
 
   <div>
     {{> atoms-slider-input }}
     <div>
-      <span class="value">60</span>
-      <span class="unit">flavenoids</span>
+      <div
+        class="value"
+        style="padding-left: 100px">{{ value }}</div>
     </div>
   </div>
 </div>

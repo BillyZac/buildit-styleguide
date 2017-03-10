@@ -2,24 +2,23 @@
 .slider-input {
   -webkit-appearance: none;
 
-  width: 200px;
+  width: 150px;
 
   &::-webkit-slider-runnable-track {
-    background: $light-gray;
+    background: $dark-gray;
     border: 0;
-    border-radius: 3px;
-    height: 5px;
-    width: 300px;
+    border-radius: 1.25px;
+    height: 8px;
   }
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: $blue;
+    background: $dark-blue;
     border: 0;
-    border-radius: 5px;
-    height: 30px;
-    margin-top: -13px;
-    width: 14px;
+    border-radius: 0;
+    height: 14px;
+    margin-top: -3px;
+    width: 4px;
 
     &:hover {
       background: lighten($blue, 10%);
