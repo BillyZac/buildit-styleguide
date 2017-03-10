@@ -1,5 +1,6 @@
+// sass-lint:disable no-vendor-prefixes
 .slider-input {
-  -webkit-appearance: none; // sass-lint:disable no-vendor-prefixes
+  -webkit-appearance: none;
 
   width: 200px;
 
@@ -13,12 +14,16 @@
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: $purple;
+    background: $blue;
     border: 0;
-    border-radius: 0%;
+    border-radius: 5px;
     height: 30px;
     margin-top: -13px;
-    width: 16px;
+    width: 14px;
+
+    &:hover {
+      background: lighten($blue, 10%);
+    }
   }
 
   &:focus,
@@ -26,7 +31,7 @@
     outline: none;
 
     &::-webkit-slider-runnable-track {
-      background: $dark-gray;
+      background: $light-green;
     }
   }
 }
