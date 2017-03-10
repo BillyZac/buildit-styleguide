@@ -26,12 +26,14 @@
     }
   }
 
-  &:focus,
+  &:focus { outline: none; }
+
   &:hover {
     outline: none;
 
     &::-webkit-slider-runnable-track {
       background: $light-green;
+      transition: background .2s ease;
     }
   }
 }

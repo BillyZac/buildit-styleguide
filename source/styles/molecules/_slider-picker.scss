@@ -1,0 +1,22 @@
+.slider-picker {
+  display: flex;
+  font-size: 1rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  width: 300px;
+
+  .label {
+    color: $light-gray;
+    margin-right: .6rem;
+    text-transform: uppercase;
+  }
+
+  .value {
+    font-size: 1.4rem;
+    margin-right: .2rem;
+  }
+
+  .unit {
+    text-transform: lowercase;
+  }
+}
