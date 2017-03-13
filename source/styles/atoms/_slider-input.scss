@@ -5,23 +5,22 @@
   width: 150px;
 
   &::-webkit-slider-runnable-track {
-    background: $dark-gray;
+    background: $light-gray;
     border: 0;
-    border-radius: 1.25px;
-    height: 8px;
+    height: 2px;
   }
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: $dark-blue;
-    border: 0;
-    border-radius: 0;
-    height: 14px;
-    margin-top: -3px;
-    width: 4px;
+    background: transparentize($white, .2);
+    border: 1.5px solid $dark-blue;
+    border-radius: 50%;
+    height: 28px;
+    margin-top: -13px;
+    width: 28px;
 
     &:hover {
-      background: lighten($blue, 10%);
+      border: 1.5px solid lighten($dark-blue, 10%);
     }
   }
 
@@ -31,8 +30,8 @@
     outline: none;
 
     &::-webkit-slider-runnable-track {
-      background: $light-green;
-      transition: background .2s ease;
+      background: $dark-blue;
+      transition: border .2s ease;
     }
   }
 }
