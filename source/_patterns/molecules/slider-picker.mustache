@@ -1,10 +1,5 @@
 <div class="slider-picker">
-  <div class="label-container">
-    {{> atoms-label }}
-  </div>
-
-  <div>
-    {{> atoms-slider-input }}
-    <div class="value">{{ value }}</div>
-  </div>
+  <label for="slider-input">{{ label }}</label>
+  {{> atoms-slider-input }}
+  <div class="value">{{ value }}</div>
 </div>
